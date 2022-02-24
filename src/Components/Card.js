@@ -13,6 +13,7 @@ export default function Item(props) {
         sx={{heigth:'35px',maxWidth:'100px'}}
         src={require(""+item.logo)}
         alt="ImageAlt"
+        
       />
     <Box>
         <Box display={"flex"} flexDirection={"row"} >

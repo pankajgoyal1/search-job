@@ -1,38 +1,43 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { Button, Box } from '@mui/material';
+import { Button, Box, useMediaQuery } from '@mui/material';
 import Typography from '@mui/material/Typography';
 export default function Item(props) {
   const {item}  = props;
+  const isMobile = useMediaQuery('(max-width:600px)');
   return (
-    <Card key={item.id} sx={{ display:'flex' ,flexDirection:'row',justifyContent:'space-between', border:'5px',margin:'10px' }}>
-      <CardMedia
-        component="img"
-        sx={{heigth:'35px',maxWidth:'100px'}}
-        src={require(""+item.logo)}
-        alt="ImageAlt"
-      />
-    <Box>
+    <Card key={item.id} className="card" sx={{ display:'flex' ,flexDirection: isMobile ? "column":"row",justifyContent:'space-between', border:'5px',margin:'30px', background:'#ffffff' }}>
+    <Box padding={1}>
+        <img sx={{heigth:'35px',maxWidth:'100px',margin:'10px'}}
+            src={require(""+item.logo)}
+            alt="ImageAlt" />
+    </Box>
+    <Box >
         <Box display={"flex"} flexDirection={"row"} >
-            <Typography gutterBottom variant="body2" component="div">
+            <Typography variant="h6" component="div">
                 {item.company}
             </Typography>
             {
                 item.new && (
-                    <Button variant={"contained"}>New!</Button>
+                    <Box padding={1}>
+                        <Button  variant={"contained"}>New!</Button>
+                    </Box> 
                 )
             }
             {
                 item.featured && (
-                    <Button variant={"contained"}>Featured</Button>
+                    <Box padding={1}>
+                        <Button  variant={"contained"}>Featured</Button>
+                    </Box> 
                 )
             }
         </Box>
-        <Typography variant="h5" color="text"> 
-            {item.position}
-        </Typography>
+        <Box>
+            <Typography variant="h5" color="text"> 
+                {item.position}
+            </Typography>
+        </Box>
         <Box display={"flex"} flexDirection={"row"} >
             <Typography variant="body2" color="text.secondary"> 
             {item.postedAt+ "  - "}
@@ -45,15 +50,18 @@ export default function Item(props) {
             </Typography>
         </Box>
     </Box>
-      <CardContent sx={{display:'flex',justifyContent:'space-between'}}>
-        <Typography variant="h5" color="text.secondary"> 
-            {item.role}
-        </Typography>
-        <Typography variant="h5" color="text"> 
-            {item.level}
-        </Typography>
+      <CardContent sx={{display:'flex',flexDirection: isMobile ? "column":"row",justifyContent:'space-between'}}>
+        <Box padding={1}>
+            <Button  variant={"contained"}>{item.level}</Button>
+        </Box>
+        <Box padding={1}>
+            <Button  variant={"contained"}>{item.role}</Button>
+        </Box>
         {
-            item.tags.map((tag)=> <Button key={tag} variant={"contained"}>{tag}</Button>)
+            item.tags.map((tag)=><Box padding={1}>
+                <Button key={tag} variant={"contained"}>{tag}</Button>
+            </Box> 
+            )
         }
       </CardContent>
     </Card>

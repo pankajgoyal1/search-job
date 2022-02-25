@@ -26,17 +26,20 @@ function App() {
   return (
     <div className="App">
       <div className='header'>
+        <h2>
+
         Phaidra
+        </h2>
       </div>
-      <div className='searchbar'>
+      <div className='searchbar' style={{margin:'30px'}}>
         <TextField
             id="standard-select-currency"
             select
-            label="Select"
+            label="Search"
             value={""}
             onChange={handleChange}
-            helperText="Please Select tags"
             variant="standard"
+            fullWidth
           >
             {listTags.map((option) => (
               <MenuItem key={option} value={option}>
@@ -48,12 +51,16 @@ function App() {
       <div style={{display:"flex", flexDirection:"row"}}>
         {tags.map((t)=>{
           return (
-            <Box variant='contained' margin='10px' >
-              {t}
-              <Button variant='contained' onClick={(e)=>{
-                const ns = tags.filter((tg)=> tg !== t);
-                setTags(ns);
-              }}>X</Button>  
+            <Box variant='contained' margin='10px 0 10px 20px' >
+              <Box padding={1}>
+                  <Button  variant="outlined" style={{borderRadius:0}}>{t}</Button>
+                  <Button variant='contained' style={{borderRadius:0}} onClick={(e)=>{
+                    const ns = tags.filter((tg)=> tg !== t);
+                    setTags(ns);
+                  }}>
+                    X
+                  </Button>  
+              </Box>
             </Box>
           );
         })}

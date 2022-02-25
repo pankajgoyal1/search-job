@@ -1,7 +1,10 @@
 .App {
   text-align: center;
+  background: lightblue;
 }
-
+body{
+  background: lightblue;
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -12,12 +15,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 } */
-.card{
-  display: flex;
-  flex-direction: row;
-}
 .App-header {
-  background-color: #282c34;
+  background-color: #769eee;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

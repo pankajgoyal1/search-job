@@ -29,6 +29,11 @@
     color: #5ca5a5;
     text-decoration: underline;
   }
+  .selectedTags{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
   
   .x {
     padding: 0.5rem;
@@ -54,6 +59,9 @@
       margin: 0;
       margin-right: 0.7em;
       margin-top: 0.5em;
+    }
+    .selectedTags{
+        flex-direction: column;
     }
   }
   

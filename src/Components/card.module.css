@@ -25,7 +25,14 @@
     font-weight: 700;
     padding: 0.5rem;
   }
-  
+  .new {
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    font-size: 0.7rem;
+    border-radius: 1rem;
+    color: white;
+    font-weight: 700;
+    margin-left: 1em;
+  }
   
   .left {
     display: flex;

@@ -15,11 +15,6 @@
   .container:hover {
     border-left: 0.3em solid #5ca5a5;
   }
-  /* .tagcontainer {
-    width: 30%;
-    height: 30%;
-  }
-   */
   .selectbtn:hover {
     background: #5ca5a5;
     color: #fff;

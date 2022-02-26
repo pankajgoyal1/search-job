@@ -60,5 +60,8 @@
       margin-right: 0.7em;
       margin-top: 0.5em;
     }
+    .selectedTags{
+        flex-direction: column;
+    }
   }
   

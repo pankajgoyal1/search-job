@@ -45,7 +45,7 @@ function App() {
           </TextField>
         </div>
       </div>
-      <div className='selectedTags'>
+      <div className={styles.selectedTags}>
         <div style={{display:"flex",flexWrap:'wrap',padding:'1em 6em'}}>
           {tags.map((t)=>{
             return (

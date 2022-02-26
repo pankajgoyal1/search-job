@@ -15,6 +15,30 @@ export default function Item(props) {
       <div className={styles.desc}>
         <div className={styles.details}>
           <span className={styles.cname}>{item.company}</span>
+          {
+              item.new && (
+                    <span
+                        className={styles.new}
+                        style={{
+                            backgroundColor:"#5CA5A5"
+                        }}
+                        >
+                        {"New!"}
+                    </span>
+              )
+            }
+            {
+                item.featured && (
+                <span
+                className={styles.new}
+                style={{
+                    backgroundColor:"#2B3939"
+                }}
+                >
+                {"Featured"}
+                </span>
+                )
+            }
         </div>
         <div className={styles.heading}>{item.position}</div>
         <div className={styles.subtitle}>

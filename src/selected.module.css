@@ -29,6 +29,11 @@
     color: #5ca5a5;
     text-decoration: underline;
   }
+  .selectedTags{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
   
   .x {
     padding: 0.5rem;

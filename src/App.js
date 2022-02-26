@@ -45,8 +45,8 @@ function App() {
           </TextField>
         </div>
       </div>
-      <div style={{display:"flex", flexDirection:"row",justifyContent:'space-between'}}>
-        <div style={{display:"flex", flexDirection:"row",padding:'1em 6em'}}>
+      <div className='selectedTags'>
+        <div style={{display:"flex",flexWrap:'wrap',padding:'1em 6em'}}>
           {tags.map((t)=>{
             return (
               <span className={styles.container}>

@@ -1,15 +1,42 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
   text-align: center;
-  background: lightblue;
+  background-color: rgba(92, 165, 165, 0.1);
+  padding-bottom: 2em;
+  min-height: 100vh;
 }
-body{
-  background: lightblue;
+.headerarea{
+  background: url("./Components/images/bg-header-desktop.svg");
+  height: 20vh;
+  position: relative;
+  margin-bottom: 4em;
+  padding: 0 6em;
 }
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.searchbar{
+  position: absolute;
+  transform: translateY(60%);
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  left: 6em;
+  right: 6em;
+  align-items: center;
+  align-content: center;
 }
-
+/* .searchfield{
+  background-color: #fff;
+  width: 80%;
+  border: none;
+  outline: none;
+  margin-left: 0.5em;
+} */
+.input::placeholder {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #000;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

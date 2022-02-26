@@ -4,7 +4,7 @@ import rawData from "./assets/data.json";
 import { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { Button, Box } from '@mui/material';
+import styles from  "./selected.module.css";
 const allTags = rawData.reduce((arr,item)=> { item.tags.forEach((t)=>arr.add(t)); return arr;},new Set());
 function App() {
   const [data,setData] = useState(rawData);
@@ -25,45 +25,50 @@ function App() {
 
   return (
     <div className="App">
-      <div className='header'>
-        <h2>
-
-        Phaidra
-        </h2>
-      </div>
-      <div className='searchbar' style={{margin:'30px'}}>
-        <TextField
-            id="standard-select-currency"
-            select
-            label="Search"
-            value={""}
-            onChange={handleChange}
-            variant="standard"
-            fullWidth
-          >
-            {listTags.map((option) => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
+      <div className='headerarea'>
+        <div className='searchbar'>
+          <TextField
+              id="standard-select-currency"
+              className="searchfield"
+              select
+              label={<span>Search</span>}
+              value={""}
+              onChange={handleChange}
+              variant="standard"
+              fullWidth
+            >
+              {listTags.map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
           </TextField>
+        </div>
       </div>
-      <div style={{display:"flex", flexDirection:"row"}}>
-        {tags.map((t)=>{
-          return (
-            <Box variant='contained' margin='10px 0 10px 20px' >
-              <Box padding={1}>
-                  <Button  variant="outlined" style={{borderRadius:0}}>{t}</Button>
-                  <Button variant='contained' style={{borderRadius:0}} onClick={(e)=>{
-                    const ns = tags.filter((tg)=> tg !== t);
-                    setTags(ns);
-                  }}>
-                    X
-                  </Button>  
-              </Box>
-            </Box>
-          );
-        })}
+      <div style={{display:"flex", flexDirection:"row",justifyContent:'space-between'}}>
+        <div style={{display:"flex", flexDirection:"row",padding:'1em 6em'}}>
+          {tags.map((t)=>{
+            return (
+              <span className={styles.container}>
+                <span className={styles.text}>{t}</span>
+                <button onClick={() => setTags((prev)=> prev.filter((p)=>p!==t))} className={styles.x}>
+                  &#x2715;
+                </button>
+              </span>
+            );
+          })}
+        </div>
+        {
+          tags?.length > 0 && (
+            <div style={{padding:'1em 6em',border:'none'}}>
+              <button className={styles.clear} onClick={()=>{
+                setTags([]);
+              }}>
+                Clear all
+              </button>
+            </div>
+          )
+        }
       </div>
       <div className='task'>
         {
